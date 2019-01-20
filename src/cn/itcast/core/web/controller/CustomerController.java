@@ -49,8 +49,7 @@ public class CustomerController {
 	public String list(@RequestParam(defaultValue="1")Integer page, @RequestParam(defaultValue="10")Integer rows, 
 			String custName, String custSource,	String custIndustry, String custLevel, Model model) {
 
-		Page<Customer> customers = customerService.findCustomerList(page, rows, custName, custSource, custIndustry,
-				custLevel);
+		Page<Customer> customers = customerService.findCustomerList(page, rows, custName, custSource, custIndustry,custLevel);
 		model.addAttribute("page", customers);
 		//客户来源
 		List<BaseDict> fromType = systemService.findBaseDictListByType(FROM_TYPE);
